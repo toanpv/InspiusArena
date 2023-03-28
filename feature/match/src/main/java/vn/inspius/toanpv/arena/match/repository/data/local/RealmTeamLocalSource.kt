@@ -31,7 +31,7 @@ class RealmTeamLocalSource(private val realm: Realm) : TeamLocalSource {
     }
 
     override suspend fun deleteTeams() {
-        realm.writeBlocking { delete(realm.query<TeamRealm>().find()) }
+        realm.deleteAll<TeamRealm>()
     }
 
     override suspend fun getMatches(): List<Match> {
@@ -39,7 +39,7 @@ class RealmTeamLocalSource(private val realm: Realm) : TeamLocalSource {
     }
 
     override suspend fun deleteMatches() {
-        realm.writeBlocking { delete(realm.query<MatchRealm>().find()) }
+        realm.deleteAll<MatchRealm>()
     }
 
     override suspend fun updateMatches(matches: List<Match>) {
