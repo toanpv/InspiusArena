@@ -4,7 +4,7 @@ Welcome to the Inspius Arena! This is a sports match scheduler and reminder app 
 
 [<img src="screenshot/main_screen.png" width=250>](screenshot/main_screen.png)
 [<img src="screenshot/match_detail.png" width=250>](screenshot/match_detail.png)
-[<img src="screenshot/main_screen_filtered.png" width=220>](screenshot/main_screen_filtered.png)
+[<img src="screenshot/main_screen_filtered.png" width=250>](screenshot/main_screen_filtered.png)
 [<img src="screenshot/team_filter.png" width=250>](screenshot/team_filter.png)
 [<img src="screenshot/team_filter_search.png" width=250>](screenshot/team_filter_search.png)
 [<img src="screenshot/match_detail_pip.png" width=250>](screenshot/match_detail_pip.png)
