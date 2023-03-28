@@ -11,8 +11,10 @@ import android.content.res.Configuration
 import android.graphics.Rect
 import android.graphics.drawable.Icon
 import android.os.Build
+import android.os.Bundle
 import android.util.Rational
 import android.view.View
+import androidx.activity.addCallback
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +23,6 @@ import vn.inspius.toanpv.arena.match.R
 import xyz.doikki.videocontroller.StandardVideoController
 import xyz.doikki.videoplayer.player.BaseVideoView.SimpleOnStateChangeListener
 import xyz.doikki.videoplayer.player.VideoView
-
 
 abstract class VideoViewPiPActivity : AppCompatActivity() {
 
@@ -91,6 +92,14 @@ abstract class VideoViewPiPActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        onBackPressedDispatcher.addCallback(this) {
+            if (!_videoView.onBackPressed())
+                finish()
+        }
+    }
+
     /**
      * Update the state of pause/resume action item in Picture-in-Picture mode.
      *
@@ -143,11 +152,6 @@ abstract class VideoViewPiPActivity : AppCompatActivity() {
         _videoView.release()
     }
 
-    override fun onBackPressed() {
-        if (_videoView.onBackPressed()) return
-        super.onBackPressed()
-    }
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onPictureInPictureModeChanged(
         isInPictureInPictureMode: Boolean, newConfig: Configuration
@@ -157,14 +161,10 @@ abstract class VideoViewPiPActivity : AppCompatActivity() {
         if (isInPictureInPictureMode) {
             _videoView.apply {
                 setVideoController(null)
-                val smallWi = (_widthPixels / 2).toInt()
+                val smallWi = (_widthPixels / 2)
                 layoutParams = ConstraintLayout.LayoutParams(
                     smallWi, smallWi * 9 / 16 + 1
                 )
-//                layoutParams = ConstraintLayout.LayoutParams(
-//                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
-//                    ConstraintLayout.LayoutParams.WRAP_CONTENT
-//                )
             }
             // Starts receiving events from action items in PiP mode.
             _receiver = object : BroadcastReceiver() {
