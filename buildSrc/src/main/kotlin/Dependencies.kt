@@ -10,8 +10,8 @@ object Dependencies {
             const val legacySupport = "1.0.0"
             const val recyclerview = "1.3.0"
             const val work = "2.8.1"
-            const val appStartup = "1.1.0-alpha01"
-            const val splashscreen = "1.1.0-alpha01"
+            const val appStartup = "1.2.0-alpha02"
+            const val splashscreen = "1.0.0"
             const val dataStore = "1.0.0"
 
             const val jUnit = "1.1.5"
@@ -55,7 +55,7 @@ object Dependencies {
         const val workMultiprocess = "androidx.work:work-multiprocess:${Versions.Androidx.work}"
         const val workTesting = "androidx.work:work-testing:${Versions.Androidx.work}"
         const val startup = "androidx.startup:startup-runtime:${Versions.Androidx.appStartup}"
-        const val splashscreen = "androidx.core:core-splashscreen:${Versions.Androidx.appStartup}"
+        const val splashscreen = "androidx.core:core-splashscreen:${Versions.Androidx.splashscreen}"
         const val dataStore =
             "androidx.datastore:datastore-preferences:${Versions.Androidx.dataStore}"
 

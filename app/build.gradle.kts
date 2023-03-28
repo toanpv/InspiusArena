@@ -9,7 +9,6 @@ plugins {
 android {
     namespace = "vn.inspius.toanpv.arena"
     compileSdk = ProjectInfo.compileSdk
-    compileSdkPreview = "UpsideDownCake"
 
     defaultConfig {
         applicationId = "vn.inspius.toanpv.arena"

@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.IntentCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -26,9 +27,10 @@ class MatchDetailActivity : VideoViewPiPActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent?.getParcelableExtra("match", MatchPrevious::class.java)?.let { vm.setMatch(it) }
-        } else intent?.getParcelableExtra<MatchPrevious>("match")?.let { vm.setMatch(it) }
+        intent?.let { nonNullIntent ->
+            IntentCompat.getParcelableExtra(nonNullIntent, "match", MatchPrevious::class.java)
+                ?.let { vm.setMatch(it) }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,10 +131,10 @@ class MatchDetailActivity : VideoViewPiPActivity() {
         }
     }
 
-    override fun toggleContent(inPiP: Boolean) {
+    override fun toggleContent(isPip: Boolean) {
         with(vb) {
-            detail.isGone = inPiP
-            toolbar.isGone = inPiP
+            detail.isGone = isPip
+            toolbar.isGone = isPip
         }
     }
 }
