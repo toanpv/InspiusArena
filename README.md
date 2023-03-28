@@ -6,12 +6,12 @@ users to view participating teams, filter matches per team, set reminders for up
 watch previous match highlights. The entire application is developed using Kotlin and follows
 Android's Material Design Guidelines.
 
-[<img src="screenshoot/main_screen.png" width=200>](screenshoot/main_screen.png)
-[<img src="screenshoot/match_detail.png" width=200>](screenshoot/match_detail.png)
-[<img src="screenshoot/main_screen_filtered.png" width=200>](screenshoot/main_screen_filtered.png)
-[<img src="screenshoot/team_filter.png" width=200>](screenshoot/team_filter.png)
-[<img src="screenshoot/team_filter_search.png" width=200>](screenshoot/team_filter_search.png)
-[<img src="screenshoot/match_detail_pip.png" width=200>](screenshoot/match_detail_pip.png)
+[<img src="screenshot/main_screen.png" width=300>](screenshot/main_screen.png)
+[<img src="screenshot/match_detail.png" width=300>](screenshot/match_detail.png)
+[<img src="screenshot/main_screen_filtered.png" width=300>](screenshot/main_screen_filtered.png)
+[<img src="screenshot/team_filter.png" width=300>](screenshot/team_filter.png)
+[<img src="screenshot/team_filter_search.png" width=300>](screenshot/team_filter_search.png)
+[<img src="screenshot/match_detail_pip.png" width=300>](screenshot/match_detail_pip.png)
 
 ### **Features**
 
@@ -27,7 +27,20 @@ Android's Material Design Guidelines.
 - In the match detail screen, users can play highlight videos in portrait or full-screen mode. On
   Android 8+ devices, picture-in-picture mode is also available for enhanced viewing flexibility.
 
-### Release
+### UI
+
+I have designed UI screens for all parts of the app, but I recognize that there is room for
+improvement. I plan to continue refining the design in future updates. All icons used in the app are
+from the Material Icon library and are licensed under
+the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt). The app icon was
+generated using Midjourney.
+
+The app provides a personalized experience by adapting to the user's preference with support for
+both dark and light mode. The theme is automatically set based on the current system setting,
+providing a seamless transition between the two modes. Moreover, for devices running Android 12 or
+later, the app also uses DynamicColors to adjust the theme based on the system's accent color.I used
+a Figma plugin [Material Theme Builder](https://www.figma.com/community/file/1035203688168086460),
+to create the app's themes.
 
 ## Architecture
 
@@ -103,7 +116,8 @@ AndroidX libraries are used throughout the module:
   coroutines' Flow
 - DataSource: for storing app configuration data and preferences
 
-The Material Design Components (MDC) library is used for all UI elements and theming.
+The Material Design Components (MDC) library is used for all UI elements and theming (support dark
+and light mode)
 Play highlight video with [DKVideoPlayer](https://github.com/Doikki/DKVideoPlayer) and
 Picture-in-Picture
 
@@ -126,16 +140,6 @@ improved in the upcoming days. These features include:
 - [ ]  CI/CD integration (Gitlab CI, fastlane…)
 - [ ]  Checking: ktlint, sonarQube
 
-#### Small note for Reviewer:
-
-> It has been over a year since I developed an end-user application. During this time, I have been
-> focusing on learning about payment systems. I see this sample project as an opportunity to
-> consolidate my experience in Android app development. It took some time to bring this app to its
-> current state (although I still need to complete the unit tests). I spent time researching and
-> choosing the appropriate tech stack, layout for the screens, architecture, and transitioning to new
-> tools such as ktor, coil, and Flow. Overall, this has been a great learning experience, and I am
-> grateful for the opportunity. Thank you.
-
 **Prerequisites**
 
 - Android Studio (Electric Eel)
@@ -153,3 +157,13 @@ improved in the upcoming days. These features include:
 **Build**
 
     ./gradlew :app:assembleRelease
+
+#### Small note for Reviewer:
+
+> It has been over a year since I developed an end-user application. During this time, I have been
+> focusing on learning about payment systems. I see this sample project as an opportunity to
+> consolidate my experience in Android app development. It took some time to bring this app to its
+> current state (although I still need to complete the unit tests). I spent time researching and
+> choosing the appropriate tech stack, layout for the screens, architecture, and transitioning to
+> new tools such as ktor, coil, and Flow. Overall, this has been a great learning experience, and I
+> am grateful for the opportunity. Thank you.
