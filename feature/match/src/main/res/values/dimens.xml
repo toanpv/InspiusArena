@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="match_team_logo_small">24dp</dimen>
+    <dimen name="match_team_logo_medium">36dp</dimen>
+    <dimen name="match_win_small">16dp</dimen>
+    <dimen name="videoview_height_normal">300dp</dimen>
+</resources>

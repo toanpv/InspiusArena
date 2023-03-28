@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/element_spacing_normal"
+        android:paddingBottom="@dimen/element_padding_medium">
+
+        <ImageView
+            android:id="@+id/iv_home_logo"
+            android:layout_width="@dimen/match_team_logo_small"
+            android:layout_height="@dimen/match_team_logo_small"
+            android:layout_marginStart="@dimen/element_padding_medium"
+            android:layout_marginTop="@dimen/element_padding_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_home_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/element_spacing_normal"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintBottom_toBottomOf="@id/iv_home_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_home_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_home_logo"
+            tools:text="@tools:sample/full_names" />
+
+        <ImageView
+            android:id="@+id/iv_away_logo"
+            android:layout_width="@dimen/match_team_logo_small"
+            android:layout_height="@dimen/match_team_logo_small"
+            android:layout_marginStart="@dimen/element_padding_medium"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_home_logo" />
+
+        <TextView
+            android:id="@+id/tv_away_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/element_spacing_normal"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            app:layout_constraintBottom_toBottomOf="@id/iv_away_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_away_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_away_logo"
+            tools:text="@tools:sample/full_names" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/split"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="tv_home_name,tv_away_name" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/element_spacing_normal"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:textAppearance="?attr/textAppearanceCaption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/split"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12/02" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceCaption"
+            app:layout_constraintEnd_toEndOf="@id/tv_date"
+            app:layout_constraintStart_toStartOf="@id/tv_date"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            tools:text="12/02" />
+
+        <ImageView
+            android:id="@+id/iv_reminder"
+            android:layout_width="@dimen/match_team_logo_small"
+            android:layout_height="@dimen/match_team_logo_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_date"
+            app:layout_constraintStart_toStartOf="@id/tv_date"
+            app:layout_constraintTop_toBottomOf="@id/tv_time"
+            app:srcCompat="@drawable/ic_match_reminded" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

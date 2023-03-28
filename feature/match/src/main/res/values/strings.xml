@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="matches_feature_title">@string/app_name</string>
+
+    <string name="sync_notification_title">@string/matches_feature_title</string>
+    <string name="sync_notification_channel_name">Sync data…</string>
+    <string name="sync_notification_channel_description">Sync Team and Matches…</string>
+
+    <string name="hint_found_nothing">No results</string>
+
+    <string name="match_empty_list">Opt! No match found</string>
+    <string name="match_headline_previous_matches">Previous matches</string>
+    <string name="match_headline_upcoming_matches">Upcoming matches</string>
+    <string name="matches_filter_title">Filter</string>
+
+    <string name="teams_query_hint">Team name</string>
+    <string name="teams_item_all">All teams</string>
+    <string name="video_player_play">Play</string>
+    <string name="video_player_pause">Pause</string>
+    <string name="video_player_replay">Replay</string>
+    <string name="match_detail_menu_pip">PIP</string>
+    <string name="match_detail_menu_pip_cd">Picture in picture mode</string>
+
+    <string name="reminder_notification_match">Upcoming match</string>
+
+    <!-- DK Player -->
+    <string name="dkplayer_replay">Replay</string>
+    <string name="dkplayer_lock_tip">Please unlock the screen first!</string>
+    <string name="dkplayer_unlocked">Unlocked</string>
+    <string name="dkplayer_locked">Locked</string>
+    <string name="dkplayer_error_message">Something went wrong, please try again later</string>
+    <string name="dkplayer_retry">  Retry  </string>
+    <string name="dkplayer_continue_play">Continue playing</string>
+    <string name="dkplayer_wifi_tip">You are currently using the mobile network, and continuing to play will consume traffic</string>
+</resources>

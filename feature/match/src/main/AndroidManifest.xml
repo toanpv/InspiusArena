@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="vn.inspius.toanpv.arena.match.worker.SyncDataWorkerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <activity
+            android:name=".ui.match.detail.MatchDetailActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:launchMode="singleInstance"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/Theme.MyApplication" />
+
+    </application>
+</manifest>
