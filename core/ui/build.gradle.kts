@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "vn.inspius.toanpv.arena.core.ui"
+    namespace = "vn.toanpv.sample.arena.core.ui"
     compileSdk = 33
 
     defaultConfig {

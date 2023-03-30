@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="matches_feature_title">@string/app_name</string>
+    <string name="matches_feature_title">Inspius Arena</string>
 
     <string name="sync_notification_title">@string/matches_feature_title</string>
     <string name="sync_notification_channel_name">Sync data…</string>

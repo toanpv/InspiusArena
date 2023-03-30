@@ -1,4 +1,4 @@
-package vn.inspius.toanpv.arena.core.ui
+package vn.toanpv.sample.arena.core.ui
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("vn.inspius.toanpv.arena.core.ui.test", appContext.packageName)
+        assertEquals("vn.toanpv.sample.arena.core.ui.test", appContext.packageName)
     }
 }
