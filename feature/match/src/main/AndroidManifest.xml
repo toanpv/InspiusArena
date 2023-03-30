@@ -12,7 +12,7 @@
             android:exported="false"
             tools:node="merge">
             <meta-data
-                android:name="vn.inspius.toanpv.arena.match.worker.SyncDataWorkerInitializer"
+                android:name="vn.toanpv.sample.arena.match.worker.SyncDataWorkerInitializer"
                 android:value="androidx.startup" />
         </provider>
 

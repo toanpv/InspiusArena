@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "vn.inspius.toanpv.arena.match"
+    namespace = "vn.toanpv.sample.arena.match"
     compileSdk = ProjectInfo.compileSdk
 
     defaultConfig {

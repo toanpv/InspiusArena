@@ -72,7 +72,7 @@ The Match module is a complete module that includes all business logic related t
 
 The module is designed with an **"Offline-first"** approach: data is synchronized (cleaned and updated) every time the app starts, and subsequent app features will use local data.
 
-The module is written in the MVVM pattern, using the following modules: :domain, :core:common, and :core:ui.
+The module is written in the MVVM pattern, using the following modules: `:domain`, `:core:common`, and `:core:ui`
 
 AndroidX libraries are used throughout the module:
 

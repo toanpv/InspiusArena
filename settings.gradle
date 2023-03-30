@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Inspius Arena"
+rootProject.name = "Android App Architecture Sample"
 include ':entity'
 include ':domain'
 include ':app'

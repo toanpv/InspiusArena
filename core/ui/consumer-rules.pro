@@ -50,4 +50,4 @@ public void *(android.view.View);
 # @Serializable and @Polymorphic are used at runtime for polymorphic serialization.
 -keepattributes RuntimeVisibleAnnotations,AnnotationDefault
 
--dontwarn vn.inspius.toanpv.arena.core.ui.R$string
+-dontwarn vn.toanpv.sample.arena.core.ui.R$string

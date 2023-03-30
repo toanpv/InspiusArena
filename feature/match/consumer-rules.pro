@@ -72,10 +72,10 @@ public void *(android.view.View);
 # @Serializable and @Polymorphic are used at runtime for polymorphic serialization.
 -keepattributes RuntimeVisibleAnnotations,AnnotationDefault
 
--keepnames class vn.inspius.toanpv.arena.entity.Match
--keepnames class vn.inspius.toanpv.arena.entity.Team
--keep class vn.inspius.toanpv.arena.match.repository.data.local.entity.TeamRealm{*;}
--keep class vn.inspius.toanpv.arena.match.repository.data.local.entity.MatchRealm{*;}
+-keepnames class vn.toanpv.sample.arena.entity.Match
+-keepnames class vn.toanpv.sample.arena.entity.Team
+-keep class vn.toanpv.sample.arena.match.repository.data.local.entity.TeamRealm{*;}
+-keep class vn.toanpv.sample.arena.match.repository.data.local.entity.MatchRealm{*;}
 
 # DKVideoView
 -keep class xyz.doikki.videoplayer.** { *; }

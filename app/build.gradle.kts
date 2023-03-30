@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "vn.inspius.toanpv.arena"
+    namespace = "vn.toanpv.sample"
     compileSdk = ProjectInfo.compileSdk
 
     defaultConfig {
-        applicationId = "vn.inspius.toanpv.arena"
+        applicationId = "vn.toanpv.sample"
         minSdk = ProjectInfo.minSdk
         targetSdk = ProjectInfo.targetSdk
         versionCode = 1
@@ -22,7 +22,7 @@ android {
 
     applicationVariants.all {
         outputs.forEach { output ->
-            val apkName = "InspiusArena_${versionName}_${versionCode}_${buildType.name}.apk"
+            val apkName = "AppArchitectureSample_${versionName}_${versionCode}_${buildType.name}.apk"
             (output as? com.android.build.gradle.internal.api.BaseVariantOutputImpl)?.apply {
                 outputFileName = output.outputFileName.replace(
                     output.outputFileName, apkName
