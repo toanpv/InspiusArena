@@ -3,7 +3,7 @@ package vn.toanpv.sample.arena.match.repository.data.network.entity
 import io.ktor.resources.*
 import kotlinx.serialization.Serializable
 import vn.toanpv.sample.arena.entity.Match
-import vn.toanpv.sample.arena.repository.data.EntityMapper
+import vn.toanpv.sample.repository.data.EntityMapper
 
 @Resource("teams/matches")
 @Serializable

@@ -20,9 +20,9 @@ import org.koin.core.parameter.parametersOf
 import vn.toanpv.sample.arena.core.ui.R
 import vn.toanpv.sample.arena.core.ui.RetrieveDataState
 import vn.toanpv.sample.arena.core.ui.addSubmittedText
+import vn.toanpv.sample.arena.core.ui.fragment.BaseViewBindingFragment
 import vn.toanpv.sample.arena.core.ui.widget.recyclerview.EqualSpacingItemDecoration
 import vn.toanpv.sample.arena.match.databinding.FragmentTeamsSelectorBinding
-import vn.toanpv.sample.arena.match.ui.BaseViewBindingFragment
 import vn.toanpv.sample.arena.match.ui.team.adapter.TeamSelectorAdapter
 import vn.toanpv.sample.arena.match.ui.team.model.TeamItem
 

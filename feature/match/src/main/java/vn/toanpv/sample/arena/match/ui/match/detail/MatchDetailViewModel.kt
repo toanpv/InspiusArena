@@ -2,7 +2,7 @@ package vn.toanpv.sample.arena.match.ui.match.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import vn.toanpv.sample.arena.match.ui.BaseViewModel
+import vn.toanpv.sample.arena.core.ui.fragment.BaseViewModel
 import vn.toanpv.sample.arena.match.ui.match.model.MatchPrevious
 
 class MatchDetailViewModel(private var matchUI: MatchPrevious) : BaseViewModel() {

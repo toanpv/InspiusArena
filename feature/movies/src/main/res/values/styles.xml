@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.App.CircularProgressIndicator" parent="Widget.Material3.CircularProgressIndicator.Medium">
+        <item name="trackThickness">20dp</item>
+    </style>
+
+    <style name="Widget.App.Chip.Movie.Imdb" parent="Widget.Material3.Chip.Assist">
+        <item name="shapeAppearanceOverlay">?attr/shapeAppearanceCornerLarge</item>
+        <item name="chipBackgroundColor">@color/imdb</item>
+        <item name="android:textColor">?attr/colorSurface</item>
+        <item name="chipStrokeWidth">0px</item>
+    </style>
+</resources>

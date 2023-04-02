@@ -19,7 +19,7 @@ val localModule = module {
                 )
             )
                 .deleteRealmIfMigrationNeeded()
-                .name("InspiusArenaRealm")
+                .name("InspiusArenaRealm.realm")
                 .build()
         )
     } onClose {

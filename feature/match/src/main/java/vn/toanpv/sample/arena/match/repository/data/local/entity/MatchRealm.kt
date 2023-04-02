@@ -3,7 +3,7 @@ package vn.toanpv.sample.arena.match.repository.data.local.entity
 import io.realm.kotlin.types.RealmObject
 import io.realm.kotlin.types.annotations.PrimaryKey
 import vn.toanpv.sample.arena.entity.Match
-import vn.toanpv.sample.arena.repository.data.EntityMapper
+import vn.toanpv.sample.repository.data.EntityMapper
 
 class MatchRealm : RealmObject, EntityMapper<Match, MatchRealm> {
     @PrimaryKey

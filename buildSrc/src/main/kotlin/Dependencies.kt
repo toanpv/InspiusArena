@@ -4,6 +4,7 @@ object Dependencies {
         object Androidx {
             const val appCompat = "1.7.0-alpha02"
             const val coreKtx = "1.10.0-rc01"
+            const val fragment = "1.6.0-alpha08"
             const val constraintLayout = "2.1.4"
             const val navigation = "2.6.0-alpha08"
             const val lifecycle = "2.6.1"
@@ -31,6 +32,7 @@ object Dependencies {
         const val realmDb = "1.6.0"
         const val jsr305 = "2.0.2"
         const val dkVideoPlayer = "3.3.7"
+        const val shimmer = "0.5.0"
     }
 
 
@@ -39,6 +41,7 @@ object Dependencies {
         const val core = "androidx.core:core-ktx:${Versions.Androidx.coreKtx}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
+        const val fragment = "androidx.fragment:fragment:${Versions.Androidx.fragment}"
         const val navigationFragment =
             "androidx.navigation:navigation-fragment-ktx:${Versions.Androidx.navigation}"
         const val navigationKtx =
@@ -98,5 +101,7 @@ object Dependencies {
         "xyz.doikki.android.dkplayer:videocache:${Versions.dkVideoPlayer}"
 
     const val jUnit = "junit:junit:${Versions.jUnit}"
+
+    const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
 
 }

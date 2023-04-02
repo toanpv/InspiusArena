@@ -5,11 +5,13 @@ import android.text.TextWatcher
 import android.widget.EditText
 import java.util.*
 
-fun EditText.addSubmittedText(delayMillis: Long = 400, input: (String) -> Unit) {
+fun EditText.addSubmittedText(
+    delayMillis: Long = 400, minLength: Int = 3, input: (String) -> Unit
+) {
     var timer = Timer()
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(editable: Editable?) {
-            if (editable != null) {
+            if (editable != null && editable.count() >= minLength) {
                 val newtInput = editable.toString()
                 timer.cancel()
                 timer = Timer()

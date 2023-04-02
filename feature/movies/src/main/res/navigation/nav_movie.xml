@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_movie"
+    app:startDestination="@id/fmMovies">
+    <fragment
+        android:id="@+id/fmMovies"
+        android:name="vn.toanpv.sample.movies.ui.movie.MovieFragment"
+        tools:layout="@layout/fragment_movie_search">
+        <action
+            android:id="@+id/acToDetail"
+            app:destination="@id/fmMovieDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fmMovieDetail"
+        android:name="vn.toanpv.sample.movies.ui.detail.MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail">
+        <argument
+            android:name="movie"
+            app:argType="vn.toanpv.sample.movies.ui.movie.model.MovieItem" />
+    </fragment>
+</navigation>

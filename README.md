@@ -1,30 +1,53 @@
-# Inspius Arena: **Sports Match Scheduler and Reminder**
+# Droid Arena: **Android App Architecture Demo**
 
-Welcome to the Inspius Arena! This is a sports match scheduler and reminder app designed to help users keep track of their favorite teams and matches of a hypothetical sports event. This app allows users to view participating teams, filter matches per team, set reminders for upcoming matches, and watch previous match highlights. The entire application is developed using Kotlin and follows Android's Material Design Guidelines.
+This demo app implements Clean Architecture and incorporates modern tech stacks, with continuous updates for new tech stacks. The entire application is developed using Kotlin and follows Android's Material Design Guidelines.
 
-[<img src="screenshot/main_screen.png" width=250>](screenshot/main_screen.png)
-[<img src="screenshot/match_detail.png" width=250>](screenshot/match_detail.png)
-[<img src="screenshot/team_filter.png" width=250>](screenshot/team_filter.png)
-[<img src="screenshot/main_screen_filtered_light.png" width=250>](screenshot/main_screen_filtered_light.png)
-[<img src="screenshot/team_filter_search_light.png" width=250>](screenshot/team_filter_search_light.png)
-[<img src="screenshot/match_detail_pip_light.png" width=250>](screenshot/match_detail_pip_light.png)
+**Movie feature**
+
+[<img src="screenshot/movie/search_dark.png" width=23%>](screenshot/movie/search_dark.png)
+[<img src="screenshot/movie/detail_dark.png" width=23%>](screenshot/movie/detail_dark.png)
+[<img src="screenshot/movie/search_light.png" width=23%>](screenshot/movie/search_light.png)
+[<img src="screenshot/movie/search_view_light.png" width=23%>](screenshot/movie/search_view_light.png)
+
+**Match feature**
+
+[<img src="screenshot/match/main_screen.png" width=250>](screenshot/match/main_screen.png)
+[<img src="screenshot/match/match_detail.png" width=250>](screenshot/match/match_detail.png)
+[<img src="screenshot/match/team_filter.png" width=250>](screenshot/match/team_filter.png)
+[<img src="screenshot/match/main_screen_filtered_light.png" width=250>](screenshot/match/main_screen_filtered_light.png)
+[<img src="screenshot/match/team_filter_search_light.png" width=250>](screenshot/match/team_filter_search_light.png)
+[<img src="screenshot/match/match_detail_pip_light.png" width=250>](screenshot/match/match_detail_pip_light.png)
 
 - [Feature](#features)
 - [UI](#ui)
 - [Architecture](#architecture)
-     - [The Motivation](#the-motivation)
-     - [Module](#modules)
-     - [Tech stacks](#tech-stacks)
+    - [The Motivation](#the-motivation)
+    - [Module](#modules)
+    - [Tech stacks](#tech-stacks)
 - [Upcoming features](#upcoming-features)
 
 ## **Features**
+
+### Movie Search feature
+
+This app is designed to provide an easy and efficient way to search for movies. It is a movie search app that connects to the OMDB API, which is a reliable source of information for movies. The app offers two main features that cater to different user needs.
+
+The first feature is the ability to search for movies by title. The second feature of the app is to show the details of a movie. Users can access information such as the movie' genre, ratings, and more.
+
+### Match Reminder feature
+
+This is a sports match scheduler and reminder app designed to help users keep track of their favorite teams and matches of a hypothetical sports event. This app allows users to view participating teams, filter matches per team, set reminders for upcoming matches, and watch previous match highlights.
 
 - The app's main screen displays both upcoming and previous matches. The Upcoming Matches section is located at the top and uses a RecyclerView in a horizontal layout. Tapping on an item allows the user to set a reminder for the match before it starts, with a reminder notification sent 5 minutes prior. Or cancel the reminder.
 - The Previous Matches section appears below, showing matches in a vertical layout. The winner of each match is indicated by a check mark. To enhance user experience, all adapters for RecyclerViews use DiffUtils for smooth and efficient item change animations.
 - An ExtendedFab is available, enabling users to filter matches by team or view all matches of an event in a separate screen with a search function.
 - In the match detail screen, users can play highlight videos in portrait or full-screen mode. On Android 8+ devices, picture-in-picture mode is also available for enhanced viewing flexibility.
 
-**Release** [Latest version](https://github.com/toanpv/InspiusArena/releases/latest)
+**Release**
+
+[Latest version](https://github.com/toanpv/InspiusArena/releases/latest)
+
+[Download APK](https://github.com/toanpv/InspiusArena/releases/latest/download/AppArchitectureSample_0.8.1_2_release.apk)
 
 ### UI
 
@@ -33,14 +56,16 @@ I have designed UI screens for all parts of the app, but I recognize that there 
 The app provides a personalized experience by adapting to the user's preference with support for both dark and light mode. The theme is automatically set based on the current system setting, providing a seamless transition between the two modes. Moreover, for devices running Android 12 or later, the app also uses DynamicColors to adjust the theme based on the system's accent color. I used a Figma plugin [Material Theme Builder](https://www.figma.com/community/file/1035203688168086460), to create the app's themes.
 
 ## Architecture
+
 ### The Motivation
+
 The main idea behind selecting the architecture for the application is 'independence'. The software development industry is constantly updating with new tech stacks at a faster pace. We cannot afford to rewrite the application every 2 years, hence, 'independence' is chosen to minimize costs when there are changes in technology, even platforms. This is why the application is built with an architecture based on Clean Architecture from [Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 
 This is my implementation based on my understanding of Clean Architecture, which provides a well-defined separation of concerns and enables us to build applications that are easy to test, maintain and scale.
 
-The UI layer is implemented using the MVVM design pattern. 
+The UI layer is implemented using the MVVM design pattern.
 
-[<img src="resource/InspiusArena_architecture.jpg">](resource/InspiusArena_architecture.jpg)
+[<img src="resource/AppArchitecture.jpg" width=80%>](resource/AppArchitecture.jpg)
 
 ### Modules
 
@@ -51,8 +76,9 @@ Project use gradle kts manage dependencies version by **`buidSrc`**
 |**`:domain`**| a Kotlin library module containing the use cases of the system. Use cases are the operations that can be performed within the application domain. This module encapsulates all of the business logic of the system, ensuring that it remains independent of the UI layer, database, os and any external dependencies.|
 |**`:core:common`**|a Kotlin library module containing common utility functions, helper classes, and other custom items that can be shared across multiple modules. They can be easily accessed by other modules.|
 |**`:core:ui`**|an Android library module containing Android UI-related items such as themes, styles, values, custom widgets, and helper classes.|
-|**`:feature:match`**|an Android library module that provides the match feature for the app. This module contains the complete UI elements and flow of the match feature, including screens, navigation, and interactions. It depends on the :domain and :core:ui modules to provide the necessary functionality.|
 |**`:app:`**|the application module that collects all of the features and modules and builds a complete application. This module defines the overall structure and behavior of the app, including the navigation between features, the layout of the UI, and the integration of external dependencies. It depends on all of the other modules to provide the necessary functionality.|
+|**`:feature:movies`**|an Android library module that provides the movies feature for the app. This module contains the complete UI elements and flow of the movies feature, including screens, navigation, and interactions. It depends on the :domain and :core:ui modules to provide the necessary functionality.|
+|**`:feature:match`**|an Android library module that provides the match feature for the app. This module contains the complete UI elements and flow of the match feature, including screens, navigation, and interactions. It depends on the :domain and :core:ui modules to provide the necessary functionality.|
 
 ### Tech stacks
 
@@ -65,6 +91,19 @@ The main libraries used in the project are:
 - `MongoDB Realm Kotlin SDK` for storage
 - `Coil` for image loading
 - `Ktor` for networking: Type-safe requests for convenient and safe API calls - it’s really awesome! :100:
+
+**Movie module**
+The module is written in the MVVM pattern, using the following modules: `:domain`, `:core:common`, and `:core:ui`
+
+AndroidX libraries are used throughout the module
+
+- `Navigation`: for navigating between fragments and following the single-activity pattern
+- `ViewModel`, `LiveData`: for implementing the MVVM architecture, with an attempt to use Kotlin coroutines' Flow
+- [Transition Framework](https://developer.android.com/training/transitions): shared element transitions determine how corresponding views move between two fragments during a fragment transition
+
+Others implementation:
+- The Material Design Components (MDC) library is used for all UI elements and theming (support dark and light mode). Including the use of `SearchView` in conjunction with a `SearchBar`.
+- Custom animation instead of use CollapsingToolbarLayout for the movie's title in the detail screen  
 
 **Match module**
 
@@ -88,6 +127,14 @@ Play highlight video with [DKVideoPlayer](https://github.com/Doikki/DKVideoPlaye
 ## **Upcoming features:**
 
 As this project is still a work in progress, there are many more features that will be added and improved in the upcoming days. These features include:
+
+**Movies module**
+
+- [ ]  Detail screen: add more information
+- [ ]  The bookmark feature and a screen to list of bookmark
+- [ ]  A main screen will show top, popular movies
+
+**Match module**
 
 - [ ]  A list of reminder matches with the ability to toggle reminders directly from the list
 - [ ]  UI improvements that will focus on the user's preferred team

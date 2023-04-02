@@ -3,7 +3,7 @@ package vn.toanpv.sample.arena.domain.team.sync
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
-import vn.toanpv.sample.arena.domain.Interact
+import vn.toanpv.sample.Interact
 import vn.toanpv.sample.arena.repository.data.preferences.DataStoreSource
 import vn.toanpv.sample.arena.repository.team.TeamsRepository
 import vn.toanpv.sample.arena.repository.team.match.MatchRepository

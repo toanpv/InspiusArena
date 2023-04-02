@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="movie_query_hint">Movie name</string>
+    <string name="movie_imdb_rate">IMDB %1$s</string>
+    <string name="movie_imdb_votes">(%1$s reviews)</string>
+
+</resources>

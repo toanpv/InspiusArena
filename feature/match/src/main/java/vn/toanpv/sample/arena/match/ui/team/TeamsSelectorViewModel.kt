@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 import vn.toanpv.sample.arena.core.ui.RetrieveDataState
 import vn.toanpv.sample.arena.domain.team.GetTeamsByNameInteract
 import vn.toanpv.sample.arena.domain.team.GetTeamsInteract
-import vn.toanpv.sample.arena.match.ui.BaseViewModel
+import vn.toanpv.sample.arena.core.ui.fragment.BaseViewModel
 import vn.toanpv.sample.arena.match.ui.team.model.TeamItem
 import vn.toanpv.sample.arena.match.ui.team.model.toItemList
 

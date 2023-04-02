@@ -24,7 +24,7 @@ fun <T> retrieveData(
 }
 
 suspend fun <T> MutableLiveData<RetrieveDataState<T>>.retrieveData(
-    context: CoroutineContext = Dispatchers.IO, block: suspend () -> T
+    block: suspend () -> T
 ) {
     postValue(RetrieveDataState.Start)
     try {

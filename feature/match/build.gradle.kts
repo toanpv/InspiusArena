@@ -48,6 +48,7 @@ dependencies {
 
     implementation(Dependencies.Androidx.core)
     implementation(Dependencies.Androidx.appCompat)
+    implementation(Dependencies.Androidx.fragment)
     implementation(Dependencies.Androidx.constraintLayout)
     implementation(Dependencies.Androidx.navigationFragment)
     implementation(Dependencies.Androidx.navigationKtx)
@@ -87,7 +88,6 @@ dependencies {
     implementation(Dependencies.dkVideoPlayerController)
     implementation(Dependencies.dkVideoPlayerExoPlayer)
     implementation(Dependencies.dkVideoPlayerCache)
-
 }
 
 kapt {
