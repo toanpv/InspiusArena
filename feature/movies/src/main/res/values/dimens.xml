@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_movie_poster_max_width">300dp</dimen>
+    <dimen name="item_bookmark_size">48dp</dimen>
+    <dimen name="item_movie_poster_corner_size">24dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+</resources>

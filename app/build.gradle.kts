@@ -14,8 +14,8 @@ android {
         applicationId = "vn.toanpv.sample"
         minSdk = ProjectInfo.minSdk
         targetSdk = ProjectInfo.targetSdk
-        versionCode = 1
-        versionName = "0.8"
+        versionCode = 2
+        versionName = "0.8.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -75,11 +75,13 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
-    implementation(project(":feature:match"))
     implementation(project(":domain"))
+    implementation(project(":feature:match"))
+    implementation(project(":feature:movies"))
 
     implementation(Dependencies.Androidx.core)
     implementation(Dependencies.Androidx.appCompat)
+    implementation(Dependencies.Androidx.fragment)
     implementation(Dependencies.Androidx.constraintLayout)
     implementation(Dependencies.Androidx.navigationFragment)
     implementation(Dependencies.Androidx.navigationKtx)
@@ -87,6 +89,7 @@ dependencies {
     implementation(Dependencies.material)
 
     implementation(Dependencies.coil)
+    implementation(Dependencies.koin)
 
     testImplementation(Dependencies.jUnit)
     androidTestImplementation(Dependencies.Androidx.jUnit)

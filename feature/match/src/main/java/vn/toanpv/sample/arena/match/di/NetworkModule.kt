@@ -1,21 +1,27 @@
 package vn.toanpv.sample.arena.match.di
 
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-import io.ktor.client.plugins.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.plugins.logging.*
-import io.ktor.client.plugins.resources.*
-import io.ktor.serialization.kotlinx.json.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.cio.endpoint
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.DEFAULT
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.resources.Resources
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.core.module.Module
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import vn.toanpv.sample.arena.match.BuildConfig
 import vn.toanpv.sample.arena.match.repository.data.network.TeamKtorRemoteSource
 import vn.toanpv.sample.arena.repository.data.network.TeamRemoteSource
 
+internal val ktorMovie = named("ktor_match_module")
 val networkModule: Module = module {
-    single {
+    single(qualifier = ktorMovie) {
         HttpClient(CIO) {
             engine {
                 endpoint {
@@ -45,5 +51,5 @@ val networkModule: Module = module {
         }
     }
 
-    single<TeamRemoteSource> { TeamKtorRemoteSource(get()) }
+    single<TeamRemoteSource> { TeamKtorRemoteSource(get(ktorMovie)) }
 }

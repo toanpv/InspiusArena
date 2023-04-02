@@ -2,7 +2,7 @@ package vn.toanpv.sample.arena.match.repository.team
 
 import vn.toanpv.sample.arena.entity.Team
 import vn.toanpv.sample.arena.extension.suspendRunCatching
-import vn.toanpv.sample.arena.match.util.LogUtils
+import vn.toanpv.sample.arena.core.ui.util.LogUtils
 import vn.toanpv.sample.arena.repository.data.local.TeamLocalSource
 import vn.toanpv.sample.arena.repository.data.network.TeamRemoteSource
 import vn.toanpv.sample.arena.repository.team.TeamsRepository

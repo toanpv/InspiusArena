@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation(Dependencies.Androidx.core)
     implementation(Dependencies.Androidx.appCompat)
+    implementation(Dependencies.Androidx.fragment)
     implementation(Dependencies.Androidx.viewModel)
     implementation(Dependencies.Androidx.liveData)
     implementation(Dependencies.Androidx.splashscreen)

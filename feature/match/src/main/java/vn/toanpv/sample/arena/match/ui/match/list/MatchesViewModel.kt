@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import vn.toanpv.sample.arena.core.ui.RetrieveDataState
+import vn.toanpv.sample.arena.core.ui.fragment.BaseViewModel
 import vn.toanpv.sample.arena.core.ui.retrieveData
 import vn.toanpv.sample.arena.domain.team.GetTeamsInteract
 import vn.toanpv.sample.arena.domain.team.match.GetPreviousMatchesInteract
@@ -26,7 +27,6 @@ import vn.toanpv.sample.arena.domain.team.match.reminder.GetRemindMatchIdsIntera
 import vn.toanpv.sample.arena.domain.team.match.reminder.ToggleRemindMatchIdsInteract
 import vn.toanpv.sample.arena.domain.team.sync.GetSyncDataStatusInteract
 import vn.toanpv.sample.arena.entity.Team
-import vn.toanpv.sample.arena.match.ui.BaseViewModel
 import vn.toanpv.sample.arena.match.ui.match.model.FilteredData
 import vn.toanpv.sample.arena.match.ui.match.model.MatchPrevious
 import vn.toanpv.sample.arena.match.ui.match.model.MatchUpcoming
@@ -71,8 +71,8 @@ class MatchesViewModel(
     private var _matchesUpcoming: MediatorLiveData<RetrieveDataState<List<MatchUpcoming>>> =
         MediatorLiveData<RetrieveDataState<List<MatchUpcoming>>>().apply {
             addSource(_teamMap) { teamMap ->
-                viewModelScope.launch {
-                    retrieveData(Dispatchers.IO + handler) {
+                viewModelScope.launch(Dispatchers.IO + handler) {
+                    retrieveData {
                         upcomingMatchesInteract.execute(
                             if (filteredData.teamId.isNullOrEmpty()) null else GetUpcomingMatchesInteract.Param(
                                 filteredData.teamId

@@ -1,4 +1,4 @@
-package vn.toanpv.sample.arena.match.ui
+package vn.toanpv.sample.arena.core.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

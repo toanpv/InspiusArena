@@ -1,6 +1,6 @@
 package vn.toanpv.sample.arena.domain.team.match.reminder
 
-import vn.toanpv.sample.arena.domain.Interact
+import vn.toanpv.sample.Interact
 
 interface UpdateRemindMatchIdsInteract :
     Interact<UpdateRemindMatchIdsInteract.Param, Boolean> {
