@@ -2,6 +2,7 @@ package vn.toanpv.sample.arena.match.ui.match.list
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,6 +18,8 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.Dispatchers
@@ -131,6 +134,24 @@ class MatchesFragment : Fragment() {
             container.scrollWithEfab(fab)
             toolbar.apply {
                 setTitle(R.string.matches_feature_title)
+                setOnMenuItemClickListener { item ->
+                    when (item.itemId) {
+                        R.id.menu_to_movie -> {
+                            NavDeepLinkRequest.Builder.fromUri(
+                                Uri.parse(
+                                    getString(vn.toanpv.sample.arena.core.ui.R.string.dl_to_movie)
+                                )
+                            )
+                                .build().let {
+                                    findNavController().navigate(
+                                        it,
+                                        NavOptions.Builder().setLaunchSingleTop(true).build()
+                                    )
+                                }
+                        }
+                    }
+                    true
+                }
             }
             fab.setOnClickListener {
                 findNavController().navigate(

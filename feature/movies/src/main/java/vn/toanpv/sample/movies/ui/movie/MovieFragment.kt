@@ -1,5 +1,6 @@
 package vn.toanpv.sample.movies.ui.movie
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -49,6 +51,24 @@ class MovieFragment :
 
     private fun initView() {
         with(vb) {
+            searchBar.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    vn.toanpv.sample.movies.R.id.menu_to_match -> {
+                        NavDeepLinkRequest.Builder.fromUri(
+                            Uri.parse(
+                                getString(R.string.dl_to_match)
+                            )
+                        )
+                            .build().let {
+                                findNavController().navigate(
+                                    it,
+                                    NavOptions.Builder().setLaunchSingleTop(true).build()
+                                )
+                            }
+                    }
+                }
+                true
+            }
             svInput.apply {
                 editText.apply {
                     setOnEditorActionListener { _, _, _ ->

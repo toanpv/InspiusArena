@@ -51,7 +51,8 @@
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/movie_query_hint" />
+        android:hint="@string/movie_query_hint"
+        app:menu="@menu/menu_movie" />
 
     <com.google.android.material.search.SearchView
         android:id="@+id/sv_input"

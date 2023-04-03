@@ -18,6 +18,8 @@
         <action
             android:id="@+id/acMatchDetail"
             app:destination="@id/matchDetailActivity" />
+
+        <deepLink app:uri="@string/dl_to_match" />
     </fragment>
 
     <activity

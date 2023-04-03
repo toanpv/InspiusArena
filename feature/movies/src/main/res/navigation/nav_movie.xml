@@ -11,6 +11,7 @@
         <action
             android:id="@+id/acToDetail"
             app:destination="@id/fmMovieDetail" />
+        <deepLink app:uri="@string/dl_to_movie" />
     </fragment>
 
     <fragment

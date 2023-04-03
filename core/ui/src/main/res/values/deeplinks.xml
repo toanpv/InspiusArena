@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dl_to_movie" translatable="false">movies://vn.toanpv.sample/movie</string>
+    <string name="dl_to_match" translatable="false">match://vn.toanpv.sample/match</string>
+</resources>

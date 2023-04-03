@@ -11,12 +11,12 @@ This demo app implements Clean Architecture and incorporates modern tech stacks,
 
 **Match feature**
 
-[<img src="screenshot/match/main_screen.png" width=250>](screenshot/match/main_screen.png)
-[<img src="screenshot/match/match_detail.png" width=250>](screenshot/match/match_detail.png)
-[<img src="screenshot/match/team_filter.png" width=250>](screenshot/match/team_filter.png)
-[<img src="screenshot/match/main_screen_filtered_light.png" width=250>](screenshot/match/main_screen_filtered_light.png)
-[<img src="screenshot/match/team_filter_search_light.png" width=250>](screenshot/match/team_filter_search_light.png)
-[<img src="screenshot/match/match_detail_pip_light.png" width=250>](screenshot/match/match_detail_pip_light.png)
+[<img src="screenshot/match/main_screen.png" width=31%>](screenshot/match/main_screen.png)
+[<img src="screenshot/match/match_detail.png" width=31%>](screenshot/match/match_detail.png)
+[<img src="screenshot/match/team_filter.png" width=31%>](screenshot/match/team_filter.png)
+[<img src="screenshot/match/main_screen_filtered_light.png" width=31%>](screenshot/match/main_screen_filtered_light.png)
+[<img src="screenshot/match/team_filter_search_light.png" width=31%>](screenshot/match/team_filter_search_light.png)
+[<img src="screenshot/match/match_detail_pip_light.png" width=31%>](screenshot/match/match_detail_pip_light.png)
 
 - [Feature](#features)
 - [UI](#ui)
@@ -43,11 +43,12 @@ This is a sports match scheduler and reminder app designed to help users keep tr
 - An ExtendedFab is available, enabling users to filter matches by team or view all matches of an event in a separate screen with a search function.
 - In the match detail screen, users can play highlight videos in portrait or full-screen mode. On Android 8+ devices, picture-in-picture mode is also available for enhanced viewing flexibility.
 
+> Each feature will have a menu item that allows you to easily switch between them.
 **Release**
 
 [Latest version](https://github.com/toanpv/InspiusArena/releases/latest)
 
-[Download APK](https://github.com/toanpv/InspiusArena/releases/latest/download/AppArchitectureSample_0.8.1_2_release.apk)
+[Download APK](https://github.com/toanpv/InspiusArena/releases/latest/download/AppArchitectureSample_0.8.2_3_release.apk)
 
 ### UI
 
