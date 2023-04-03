@@ -1,2 +1,4 @@
 <resources>
+    <string name="feature_movie_title">Movie feature</string>
+    <string name="feature_match_title">Match feature</string>
 </resources>

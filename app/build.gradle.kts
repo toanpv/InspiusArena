@@ -14,8 +14,8 @@ android {
         applicationId = "vn.toanpv.sample"
         minSdk = ProjectInfo.minSdk
         targetSdk = ProjectInfo.targetSdk
-        versionCode = 2
-        versionName = "0.8.1"
+        versionCode = 3
+        versionName = "0.8.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="vn.toanpv.sample.arena.MainActivity">
+    <item
+        android:id="@+id/menu_to_match"
+        android:icon="@drawable/ic_switch_feature"
+        android:orderInCategory="100"
+        android:title="@string/switch_to_match_feature"
+        app:showAsAction="never" />
+</menu>
