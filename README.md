@@ -2,12 +2,6 @@
 
 This demo app implements Clean Architecture and incorporates modern tech stacks, with continuous updates for new tech stacks. The entire application is developed using Kotlin and follows Android's Material Design Guidelines.
 
-**Movie feature**
-
-[<img src="screenshot/movie/search_dark.png" width=23%>](screenshot/movie/search_dark.png)
-[<img src="screenshot/movie/detail_dark.png" width=23%>](screenshot/movie/detail_dark.png)
-[<img src="screenshot/movie/search_light.png" width=23%>](screenshot/movie/search_light.png)
-[<img src="screenshot/movie/search_view_light.png" width=23%>](screenshot/movie/search_view_light.png)
 
 **Match feature**
 
@@ -17,6 +11,13 @@ This demo app implements Clean Architecture and incorporates modern tech stacks,
 [<img src="screenshot/match/main_screen_filtered_light.png" width=31%>](screenshot/match/main_screen_filtered_light.png)
 [<img src="screenshot/match/team_filter_search_light.png" width=31%>](screenshot/match/team_filter_search_light.png)
 [<img src="screenshot/match/match_detail_pip_light.png" width=31%>](screenshot/match/match_detail_pip_light.png)
+
+**Movie feature**
+
+[<img src="screenshot/movie/search_dark.png" width=23%>](screenshot/movie/search_dark.png)
+[<img src="screenshot/movie/detail_dark.png" width=23%>](screenshot/movie/detail_dark.png)
+[<img src="screenshot/movie/search_light.png" width=23%>](screenshot/movie/search_light.png)
+[<img src="screenshot/movie/search_view_light.png" width=23%>](screenshot/movie/search_view_light.png)
 
 - [Feature](#features)
 - [UI](#ui)
