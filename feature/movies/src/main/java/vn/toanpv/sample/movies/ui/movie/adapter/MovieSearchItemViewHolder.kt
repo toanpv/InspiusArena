@@ -34,11 +34,9 @@ class MovieSearchItemViewHolder(
 
     override fun bind(item: MovieItem?, payload: Bundle) {
         super.bind(item, payload)
-        when {
-            payload.getBoolean(MovieAdapter.PAYLOAD_BOOKMARK, false) -> bindBookmark(item)
-            payload.getBoolean(MovieAdapter.PAYLOAD_TITLE, false) -> bindTitle(item)
-            payload.getBoolean(MovieAdapter.PAYLOAD_TITLE, false) -> bindPoster(item)
-        }
+        if (payload.getBoolean(MovieAdapter.PAYLOAD_BOOKMARK, false)) bindBookmark(item)
+        if (payload.getBoolean(MovieAdapter.PAYLOAD_TITLE, false)) bindTitle(item)
+        if (payload.getBoolean(MovieAdapter.PAYLOAD_TITLE, false)) bindPoster(item)
     }
 
     private fun bindTitle(item: MovieItem?) {

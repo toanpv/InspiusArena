@@ -34,29 +34,35 @@ class MatchUpcomingViewHolder(
 
     override fun bind(item: MatchUpcoming?, payload: Bundle) {
         super.bind(item, payload)
-        when {
-            payload.getBoolean(
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_REMINDER, false
-            ) -> bindReminder(item)
-            payload.getBoolean(
+            )
+        ) bindReminder(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_HOME_LOGO, false
-            ) -> bindHomeLogo(item)
-            payload.getBoolean(
+            )
+        ) bindHomeLogo(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_HOME_NAME, false
-            ) -> bindHomeName(item)
-            payload.getBoolean(
+            )
+        ) bindHomeName(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_AWAY_LOGO, false
-            ) -> bindAwayLogo(item)
-            payload.getBoolean(
+            )
+        ) bindAwayLogo(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_AWAY_NAME, false
-            ) -> bindAwayName(item)
-            payload.getBoolean(
+            )
+        ) bindAwayName(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_DATE, false
-            ) -> bindDate(item)
-            payload.getBoolean(
+            )
+        ) bindDate(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_TIME, false
-            ) -> bindTime(item)
-        }
+            )
+        ) bindTime(item)
+
     }
 
     private fun bindReminder(match: MatchUpcoming?) {

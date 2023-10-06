@@ -33,11 +33,9 @@ class TeamSelectorViewHolder(
 
     override fun bind(item: TeamItem?, payload: Bundle) {
         super.bind(item, payload)
-        when {
-            payload.getBoolean(PAYLOAD_CHECK, false) -> bindCheck(item)
-            payload.getBoolean(PAYLOAD_NAME, false) -> bindName(item)
-            payload.getBoolean(PAYLOAD_LOGO, false) -> bindLogo(item)
-        }
+        if (payload.getBoolean(PAYLOAD_CHECK, false)) bindCheck(item)
+        if (payload.getBoolean(PAYLOAD_NAME, false)) bindName(item)
+        if (payload.getBoolean(PAYLOAD_LOGO, false)) bindLogo(item)
     }
 
     private fun bindName(item: TeamItem?) {

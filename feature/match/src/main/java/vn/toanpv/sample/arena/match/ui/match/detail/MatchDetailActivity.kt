@@ -121,7 +121,7 @@ class MatchDetailActivity : VideoViewPiPActivity() {
             tvHomeName.text = match?.homeName ?: ""
             tvDescription.apply {
                 if (match != null) {
-                    text = match.description.repeat(60)
+                    text = match.description
                     isVisible = true
                 } else {
                     text = ""

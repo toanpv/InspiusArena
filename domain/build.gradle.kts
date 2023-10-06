@@ -4,8 +4,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks.test {
@@ -16,7 +16,7 @@ dependencies {
     implementation(project(":entity"))
 
     testImplementation(kotlin("test-junit5"))
-    testImplementation("io.kotest:kotest-assertions-core:5.1.0")
+    testImplementation("io.kotest:kotest-assertions-core:5.7.2")
     testImplementation(Dependencies.mockk)
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.8.0")
     testImplementation(Dependencies.coroutineTest)

@@ -36,32 +36,38 @@ class MatchPreviousViewHolder(
 
     override fun bind(item: MatchPrevious?, payload: Bundle) {
         super.bind(item, payload)
-        when {
-            payload.getBoolean(
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_WINNER, false
-            ) -> bindWinner(item)
-            payload.getBoolean(
+            )
+        ) bindWinner(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_HOME_LOGO, false
-            ) -> bindHomeLogo(item)
-            payload.getBoolean(
+            )
+        ) bindHomeLogo(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_HOME_NAME, false
-            ) -> bindHomeName(item)
-            payload.getBoolean(
+            )
+        ) bindHomeName(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_AWAY_LOGO, false
-            ) -> bindAwayLogo(item)
-            payload.getBoolean(
+            )
+        ) bindAwayLogo(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_AWAY_NAME, false
-            ) -> bindAwayName(item)
-            payload.getBoolean(
+            )
+        ) bindAwayName(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_DATE, false
-            ) -> bindDate(item)
-            payload.getBoolean(
+            )
+        ) bindDate(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_TIME, false
-            ) -> bindTime(item)
-            payload.getBoolean(
+            )
+        ) bindTime(item)
+        if (payload.getBoolean(
                 MatchesRecyclerViewAdapter.PAYLOAD_DESCRIPTION, false
-            ) -> bindDesc(item)
-        }
+            )
+        ) bindDesc(item)
     }
 
     private fun bindWinner(match: MatchPrevious?) {
@@ -81,6 +87,7 @@ class MatchPreviousViewHolder(
                         applyTo(constraintLayout)
                     }
                 }
+
                 match.awayId -> {
                     ConstraintSet().apply {
                         clone(constraintLayout)
@@ -93,6 +100,7 @@ class MatchPreviousViewHolder(
                         applyTo(constraintLayout)
                     }
                 }
+
                 else -> {
                     vb.ivWin.isVisible = false
                 }
