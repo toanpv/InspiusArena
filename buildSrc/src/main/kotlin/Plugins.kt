@@ -1,7 +1,7 @@
 object Plugins {
 
     object Versions {
-        const val androidLibrary = "7.4.2"
+        const val androidLibrary = "8.1.0"
         const val kotlinAndroid = "1.8.0"
         const val kapt = "1.5.0"
         const val kotlinSerialization = "1.8.0"
