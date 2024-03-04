@@ -17,15 +17,19 @@ class SyncDataInteractImpl(
         return withContext(Dispatchers.IO) {
             try {
                 dataStoreSource.setSyncStatus(true)
-                if (!async { teamsRepository.sync() }.await())
+                if (!async { teamsRepository.sync() }.await()) {
+                    dataStoreSource.setSyncStatus(false)
                     return@withContext false
+                }
 
                 if (!async { matchRepository.sync() }.await()) {
+                    dataStoreSource.setSyncStatus(false)
                     return@withContext false
                 }
                 dataStoreSource.setSyncStatus(false)
                 true
             } catch (ex: Exception) {
+                ex.printStackTrace()
                 dataStoreSource.setSyncStatus(false)
                 false
             }

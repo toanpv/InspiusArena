@@ -89,6 +89,8 @@ dependencies {
     implementation(Dependencies.dkVideoPlayerController)
     implementation(Dependencies.dkVideoPlayerExoPlayer)
     implementation(Dependencies.dkVideoPlayerCache)
+
+    implementation(Dependencies.shimmer)
 }
 
 kapt {

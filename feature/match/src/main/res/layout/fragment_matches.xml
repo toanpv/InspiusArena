@@ -60,6 +60,46 @@
                     tools:listitem="@layout/item_match_upcoming"
                     tools:orientation="horizontal" />
 
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_upcoming_match"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_upcoming_headline">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include layout="@layout/item_match_upcoming_mock" />
+
+                        <include
+                            layout="@layout/item_match_upcoming_mock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp" />
+
+                        <include
+                            layout="@layout/item_match_upcoming_mock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp" />
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/brTopMatches"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="shimmer_upcoming_match,rvUpcomingMatches" />
+
                 <TextView
                     android:id="@+id/tv_previous_headline"
                     android:layout_width="match_parent"
@@ -68,7 +108,7 @@
                     android:layout_marginTop="@dimen/element_spacing_normal"
                     android:text="@string/match_headline_previous_matches"
                     android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintTop_toBottomOf="@id/rvUpcomingMatches" />
+                    app:layout_constraintTop_toBottomOf="@id/brTopMatches" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvPreviousMatches"
@@ -82,6 +122,67 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_previous_headline"
                     tools:listitem="@layout/item_match_previous" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_previous_match"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/content_padding_normal"
+                    app:layoutManager="LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_previous_headline">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/content_padding_normal">
+
+                        <include layout="@layout/item_match_previous_mock" />
+
+                        <include
+                            layout="@layout/item_match_previous_mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+
+
+                        <include
+                            layout="@layout/item_match_previous_mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+
+                        <include
+                            layout="@layout/item_match_previous_mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+
+                        <include
+                            layout="@layout/item_match_previous_mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+
+                        <include
+                            layout="@layout/item_match_previous_mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+
+                        <include
+                            layout="@layout/item_match_previous_mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
 
                 <TextView
                     android:id="@+id/tvEmpty"
