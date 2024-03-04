@@ -204,9 +204,9 @@ class MatchesFragment : Fragment() {
                     is RetrieveDataState.Success -> {
                         lifecycleScope.launch(Dispatchers.IO) {
                             rvPreviousAdapter.setData(state.data) {
-                                setDataState(
-                                    vb.rvPreviousMatches, rvPreviousAdapter.itemCount > 0
-                                )
+                                val hasData = rvPreviousAdapter.itemCount > 0
+                                setDataState(vb.rvPreviousMatches, hasData)
+                                vb.tvEmpty.isVisible = rvUpcomingAdapter.itemCount == 0
                                 vb.rvPreviousMatches.smoothScrollToPosition(0)
                             }
                         }
@@ -273,7 +273,7 @@ class MatchesFragment : Fragment() {
 
     private fun showLoading(isLoading: Boolean = true) {
         vb.srl.isRefreshing = isLoading
-        if (firstLoad++ == 2) {
+        if (firstLoad++ <= 4) {
             vb.shimmerPreviousMatch.showShimmer(isLoading)
             vb.shimmerPreviousMatch.isGone = !isLoading
             vb.shimmerUpcomingMatch.showShimmer(isLoading)
@@ -283,7 +283,6 @@ class MatchesFragment : Fragment() {
 
     private fun setDataState(view: RecyclerView, hasData: Boolean) {
         view.isVisible = hasData
-        vb.tvEmpty.isVisible = !hasData
     }
 
     override fun onDestroy() {
