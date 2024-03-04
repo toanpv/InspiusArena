@@ -12,6 +12,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -22,6 +23,7 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -49,6 +51,8 @@ class MatchesFragment : Fragment() {
     private lateinit var rvUpcomingAdapter: MatchesUpcomingRecyclerViewAdapter
     private lateinit var rvPreviousAdapter: MatchesPreviousRecyclerViewAdapter
     private lateinit var checkNotificationPermission: ActivityResultLauncher<String>
+
+    private var firstLoad = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -141,13 +145,11 @@ class MatchesFragment : Fragment() {
                                 Uri.parse(
                                     getString(vn.toanpv.sample.arena.core.ui.R.string.dl_to_movie)
                                 )
-                            )
-                                .build().let {
-                                    findNavController().navigate(
-                                        it,
-                                        NavOptions.Builder().setLaunchSingleTop(true).build()
-                                    )
-                                }
+                            ).build().let {
+                                findNavController().navigate(
+                                    it, NavOptions.Builder().setLaunchSingleTop(true).build()
+                                )
+                            }
                         }
                     }
                     true
@@ -181,6 +183,8 @@ class MatchesFragment : Fragment() {
             srl.setOnRefreshListener {
                 vm.refreshData()
             }
+            vb.rvPreviousMatches.isInvisible = true
+            vb.rvUpcomingMatches.isInvisible = true
         }
     }
 
@@ -193,22 +197,24 @@ class MatchesFragment : Fragment() {
             matchesPrevious.observe(viewLifecycleOwner) { state ->
                 when (state) {
                     is RetrieveDataState.Start -> {
-                        vb.srl.isRefreshing = true
+                        showLoading()
                         vb.tvEmpty.isGone = true
                     }
+
                     is RetrieveDataState.Success -> {
                         lifecycleScope.launch(Dispatchers.IO) {
                             rvPreviousAdapter.setData(state.data) {
-                                setDataState(
-                                    rvPreviousAdapter.itemCount > 0
-                                )
+                                val hasData = rvPreviousAdapter.itemCount > 0
+                                setDataState(vb.rvPreviousMatches, hasData)
+                                vb.tvEmpty.isVisible = rvUpcomingAdapter.itemCount == 0
                                 vb.rvPreviousMatches.smoothScrollToPosition(0)
                             }
                         }
-                        vb.srl.isRefreshing = false
+                        showLoading(false)
                     }
+
                     is RetrieveDataState.Error -> {
-                        vb.srl.isRefreshing = false
+                        showLoading(false)
                         state.throwable.let {
                             it.printStackTrace()
                             it.localizedMessage?.let { message -> vb.snackbar(message) }
@@ -225,20 +231,23 @@ class MatchesFragment : Fragment() {
                         when (state) {
                             is RetrieveDataState.Start -> {
                             }
+
                             is RetrieveDataState.Success -> {
                                 lifecycleScope.launch(Dispatchers.Main) {
                                     val oldCount = rvUpcomingAdapter.itemCount
                                     rvUpcomingAdapter.setData(state.data) {
                                         setDataState(
-                                            rvUpcomingAdapter.itemCount > 0
+                                            vb.rvUpcomingMatches, rvUpcomingAdapter.itemCount > 0
                                         )
                                         //"try" to make refresh list feeling
-                                        if (oldCount != rvUpcomingAdapter.itemCount)
-                                            vb.rvUpcomingMatches.smoothScrollToPosition(0)
+                                        if (oldCount != rvUpcomingAdapter.itemCount) vb.rvUpcomingMatches.smoothScrollToPosition(
+                                            0
+                                        )
                                         vb.container.smoothScrollTo(0, 0)
                                     }
                                 }
                             }
+
                             is RetrieveDataState.Error -> {
                                 state.throwable.let {
                                     it.printStackTrace()
@@ -254,18 +263,26 @@ class MatchesFragment : Fragment() {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     dataSyncingFlow.collect { syncing ->
                         if (syncing) {
-                            vb.srl.isRefreshing = true
-                        } else
-                            refreshData()
+                            showLoading()
+                        } else refreshData()
                     }
                 }
             }
         }
     }
 
-    private fun setDataState(hasData: Boolean) {
-        vb.rvUpcomingMatches.isVisible = hasData
-        vb.tvEmpty.isVisible = !hasData
+    private fun showLoading(isLoading: Boolean = true) {
+        vb.srl.isRefreshing = isLoading
+        if (firstLoad++ <= 4) {
+            vb.shimmerPreviousMatch.showShimmer(isLoading)
+            vb.shimmerPreviousMatch.isGone = !isLoading
+            vb.shimmerUpcomingMatch.showShimmer(isLoading)
+            vb.shimmerUpcomingMatch.isGone = !isLoading
+        }
+    }
+
+    private fun setDataState(view: RecyclerView, hasData: Boolean) {
+        view.isVisible = hasData
     }
 
     override fun onDestroy() {
