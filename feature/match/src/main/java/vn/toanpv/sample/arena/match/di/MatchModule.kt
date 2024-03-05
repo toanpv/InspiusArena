@@ -1,6 +1,7 @@
 package vn.toanpv.sample.arena.match.di
 
 import android.content.Context
+import com.danikula.videocache.HttpProxyCacheServer
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext
 import org.koin.core.module.Module
@@ -33,6 +34,7 @@ class MatchModule {
 
         private fun initGeneral(context: Context) {
             ContextModule.init(context)
+
             VideoViewManager.setConfig(
                 VideoViewConfig.newBuilder()
                     .setPlayerFactory(ExoMediaPlayerFactory.create())
@@ -45,6 +47,11 @@ class MatchModule {
     }
 }
 
+val utilModule: Module = module {
+    single { HttpProxyCacheServer(get()) }
+}
+
+
 internal val allModules = module {
     includes(
         contextModule,
@@ -53,6 +60,7 @@ internal val allModules = module {
         networkModule,
         repositoryModule,
         userCaseModule,
-        viewModelModule
+        viewModelModule,
+        utilModule
     )
 }

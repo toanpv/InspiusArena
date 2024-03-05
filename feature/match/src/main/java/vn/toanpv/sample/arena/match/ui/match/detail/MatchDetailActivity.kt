@@ -13,8 +13,10 @@ import androidx.core.view.MenuProvider
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.navigation.navArgs
+import com.danikula.videocache.HttpProxyCacheServer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import org.koin.java.KoinJavaComponent.inject
 import vn.toanpv.sample.arena.core.ui.widget.loadOrClear
 import vn.toanpv.sample.arena.match.R
 import vn.toanpv.sample.arena.match.databinding.ActivityMatchDetailBinding
@@ -24,6 +26,7 @@ class MatchDetailActivity : VideoViewPiPActivity() {
     private val navArgs by navArgs<MatchDetailActivityArgs>()
     private val vm by viewModel<MatchDetailViewModel> { parametersOf(navArgs.match) }
     private lateinit var vb: ActivityMatchDetailBinding
+    private val httpCache: HttpProxyCacheServer by inject(HttpProxyCacheServer::class.java)
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
@@ -69,7 +72,7 @@ class MatchDetailActivity : VideoViewPiPActivity() {
             with(vb) {
                 player.apply {
                     release()
-                    setUrl(match.highlights)
+                    setUrl(httpCache.getProxyUrl(match.highlights))
                     start()
                 }
                 bindDetail(vb, match)
@@ -94,6 +97,7 @@ class MatchDetailActivity : VideoViewPiPActivity() {
                             applyTo(constraintLayout)
                         }
                     }
+
                     match.awayId -> {
                         ConstraintSet().apply {
                             clone(constraintLayout)
@@ -106,6 +110,7 @@ class MatchDetailActivity : VideoViewPiPActivity() {
                             applyTo(constraintLayout)
                         }
                     }
+
                     else -> {
                         ivWin.isVisible = false
                     }
